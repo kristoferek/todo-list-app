@@ -189,16 +189,29 @@ describe('controller', function () {
 		});
 
 		// Custom changes
-		it('should update the view', function () {
-			var todo = {id: 20, title: 'my todo', completed: false};
+		it('should toggle all todos to uncompleted', function () {
+			var todo = {id: 20, title: 'my todo', completed: true};
 			setUpModel([todo]);
 
 			subject.setView('');
 
-			var parameter = {	completed: true };
+			var parameter = {	completed: false };
 			view.trigger('toggleAll', parameter);
 
-			expect(view.render).toHaveBeenCalledWith('elementComplete', {id: 20, completed: true});
+			expect(model.update).toHaveBeenCalledWith(20, {completed: false}, jasmine.any(Function));
+		});
+
+		// Custom changes
+		it('should update the view', function () {
+			var todo = {id: 20, title: 'my todo', completed: true};
+			setUpModel([todo]);
+
+			subject.setView('');
+
+			var parameter = {	completed: false};
+			view.trigger('toggleAll', parameter);
+
+			expect(view.render).toHaveBeenCalledWith('elementComplete', {id: 20, completed: false});
 		});
 	});
 
@@ -252,7 +265,7 @@ describe('controller', function () {
 	});
 
 	describe('element removal', function () {
-		
+
 		// Custom changes
 		it('should remove an entry from the model', function () {
 			var todo = {id: 42, title: 'my todo', completed: true};
@@ -327,6 +340,19 @@ describe('controller', function () {
 			view.trigger('itemToggle', {id: 42, completed: false});
 
 			expect(view.render).toHaveBeenCalledWith('elementComplete', {id: 42, completed: false});
+		});
+
+		// Custom modification tests
+		// Add the select-all-toggle feature for the TODO app, but TTD style - create failing tests, write feature, make tests pass.
+		it('should mark all active tasks to completed on check to checked click', function(){
+			var todo = {id: 42, title: 'my todo', completed: false};
+			setUpModel([todo]);
+
+			view.trigger('toggleAllChecked', true)
+
+			// view.trigger('toggleAll', {completed: true});
+
+			expect(model.update).toHaveBeenCalledWith(42, {completed: true}, jasmine.any(Function))
 		});
 	});
 

@@ -92,6 +92,11 @@
 		});
 	};
 
+  // Changes 'checked' status of toggleAll input
+	View.prototype._toggleAllChecked = function (checkbox) {
+		console.log(checkBox);
+	};
+
 	View.prototype.render = function (viewCmd, parameter) {
 		var self = this;
 		var viewCommands = {
@@ -127,6 +132,10 @@
 			},
 			editItemDone: function () {
 				self._editItemDone(parameter.id, parameter.title);
+			},
+      // custom: toggleAllChecked
+			toggleAllChecked: function () {
+				self._toggleAllChecked(this.$toggleAll);
 			}
 		};
 

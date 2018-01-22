@@ -348,11 +348,11 @@ describe('controller', function () {
 			var todo = {id: 42, title: 'my todo', completed: false};
 			setUpModel([todo]);
 
-			view.trigger('toggleAllChecked', true)
+			subject.setView('');
 
-			// view.trigger('toggleAll', {completed: true});
+			view.trigger('toggleAll', {completed: true});
 
-			expect(model.update).toHaveBeenCalledWith(42, {completed: true}, jasmine.any(Function))
+			expect(model.update).toHaveBeenCalledWith(42, {completed: true}, jasmine.any(Function));
 		});
 	});
 

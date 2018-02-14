@@ -5,6 +5,7 @@
     "todomvc-common": "^1.0.1"
   },
   "devDependencies": {
+    "documentation": "^5.4.0",
     "jasmine": "^2.8.0",
     "jasmine-core": "^2.0.0"
   }

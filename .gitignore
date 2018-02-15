@@ -2,7 +2,8 @@
 !node_modules/todomvc-app-css/index.css
 .cache/
 dist/
-node_modules
+node_modules/*
+node_modules/
 
 #node_modules/todomvc-common
 !node_modules/todomvc-common/base.js

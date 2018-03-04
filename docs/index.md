@@ -69,40 +69,55 @@ During writing additional test for stayling of checkbox state I found bug. There
 I corrected following:
 -  in ***controller.js***
 
-    found `Controller.prototype.adddItem`
+  found
+  ```javascript
+  Controller.prototype.adddItem
+  ```
 
-    replaced with `Controller.prototype.addItem`
+  replaced with
+   ```javascript
+   Controller.prototype.addItem
+   ```
 -  in ***index.html***
 
-    found `<input class="toggle-all" type="checkbox">`
+  found
+  ```HTML
+    <input class="toggle-all" type="checkbox">
+  ```
+  replaced with
+  ``` HTML
+  <input class="toggle-all" id="toggle-all" type="checkbox">
+  ```
 
-    replaced with `<input class="toggle-all" id="toggle-all" type="checkbox">`
 - in ***strore.js***
 
-    found
+  found
+  ```javascript
+  for (var i = 0; i < 6; i++) {
+    newId += charset.charAt(Math.floor(Math.random() * charset.length));
+  }
+  ```
+  replaced with
 
-        for (var i = 0; i < 6; i++) {
-          newId += charset.charAt(Math.floor(Math.random() * charset.length));
-        }
-    replaced with
-        var isUnique = false;
+  ```javascript
+  var isUnique = false;
 
-        while (!isUnique){
-    			for (var i = 0; i < 6; i++) {
-    				newId += charset.charAt(Math.floor(Math.random() * charset.length));
-    			}
-    			isUnique = true;
-    			for (var i = 0; i < todos.length; i++) {
-    				if (todos[i].id == newId) {
-    					isUnique = false;
-    				}
-    			}
-        }
-
+  while (!isUnique){
+		for (var i = 0; i < 6; i++) {
+			newId += charset.charAt(Math.floor(Math.random() * charset.length));
+		}
+		isUnique = true;
+		for (var i = 0; i < todos.length; i++) {
+			if (todos[i].id == newId) {
+				isUnique = false;
+			}
+		}
+  }
+  ```
 
 ## Audit
 
-My impression is that page loads fast, uses small amount of memory and displays content immediately. It is based only on html, css and javascript sources and doesn't require any media files, like images or video as well as fonts or heavy and complicated css files.
+My impression is that page loads fast, uses small amount of memory and displays content immediately. It is based only on `html`, `css` and `vanilla javascript` sources and doesn't require any media files, like images or video as well as fonts or heavy and complicated style files.
 
 #### Loading
 *(The worst achieved result)*
@@ -119,7 +134,9 @@ Memory required by application to start is lower then 20MB which is more then su
 
 Loading testing results are available on below listed snapshots:
 
-[Overview](./img/loading.jpg) :: [Performance](./img/loading_performance.jpg) :: [Memory](./img/loading_memory.jpg) :: [Scripting](./img/loading_scripting.jpg)
+[![Overview](./img/loading_th.jpg)](./img/loading.jpg)| [![Performance](./img/loading_performance_th.jpg)](./img/loading_performance.jpg)
+---|---
+[![Memory](./img/loading_memory_th.jpg)](./img/loading_memory.jpg) | [![Scripting](./img/loading_scripting_th.jpg)](./img/loading_scripting.jpg)
 
 #### Operating
 
@@ -128,30 +145,35 @@ Loading testing results are available on below listed snapshots:
     - rendering: **70.4ms**
     - memory usage: **+(<2)%**
 
-    [Performance](./img/switch_performance.jpg) :: [Memory](./img/switch_memory.jpg)
+    [![Performance](./img/adding_performance_th.jpg)](./img/ading_performance.jpg) | [![Memory](./img/adding_memory_th.jpg)](./img/adding_memory.jpg)
+
 2. Operation of continuosly **switching three basic views** between All, Active, Completed
     - scripting: **12.2ms**
     - rendering: **32.7ms**
     - memory usage: **-(<1)%**
 
+    [![Performance](./img/switch_performance_th.jpg)](./img/switch_performance.jpg) | [![Memory](./img/switch_memory_th.jpg)](./img/switch_memory.jpg)
+
 3. Operation of **marking one task completed**
     - scripting: **2.7ms**
     - rendering: **27.6ms**
     - memory usage: **-(<1)%**
-    [Performance](./img/marking_performance.jpg) :: [Memory](./img/memory_memory.jpg)
+
+    [![Performance](./img/marking_performance_th.jpg)](./img/marking_performance.jpg) | [![Memory](./img/marking_memory_th.jpg)](./img/marking_memory.jpg)
 
 4. Operation of **Clearing three completed tasks**
     - scripting: **7.2ms**
     - rendering: **11.3ms**
     - memory usage: **-(<1)%**
-    [Performance](./img/clearing_performance.jpg) :: [Memory](./img/clearing_memory.jpg)
 
-Operating fully loaded application requires minimum recources. While using app Dev tools shows low memory usage short scripting and rendering times.
+    [![Performance](./img/clearing_performance_th.jpg)](./img/clearing_performance.jpg) | [![Memory](./img/clearing_memory_th.jpg)](./img/clearing_memory.jpg)
+
+Operating fully loaded application requires minimum recources. During interacting with app Dev Tools shows low memory usage short scripting and rendering times.
 
 #### Conclusions
 App performs very efficient. There is a space for further developments with regards of keeping app small and quick. In my opinion it would be optimal to use dedicated CSS and vanilla JavaScript styling with normalization for different platforms and browsers.
 
-To-do-app can be developed as well as sole application as a very efficient module to be combined in a larger project. One of the key chalanges is to chose appropiate storage solution that will allow to keep simplicity, speed and low recources demand.
+To-do-app can be developed as a sole application as well as a very efficient module to be combined in a larger project. One of the key chalanges is to chose appropiate storage solution that will allow to keep simplicity, speed and low recources demand.
 
 ## Competitor comparison
 - Comparison with competitor's audit results

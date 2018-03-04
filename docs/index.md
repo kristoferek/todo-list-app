@@ -1,4 +1,3 @@
-SPELLCHECK
 ### Table of Contents
 -  [Introduction](#introduction)
 -  [Program specification](#Program-specification)
@@ -16,46 +15,44 @@ You can see it working here:
 
 App is a kind of model showing how to implement MVC approach in JavaScript. Model, Controller, View (MVC) methodology separates program logic (model) from display functionality (View) and manages them using separate entity (Controller).
 
-The managing part of program (Contrloller) is resposible for:
+The managing part of program (Contrloller) is responsible for:
 1.  listening to user actions from View,
 2.  calling Model to perform requested operations,
-3.  calling View to diplay results from Model  
+3.  calling View to display results from Model  
 
 
 ## Program specification
-You can find detailed description of all functions in [this file](./javascript.md). It was generated automaticly from JavaScript files.
+You can find detailed description of all functions in [file javascript.md](./javascript.md). It was generated automatically from JavaScript files using 'documentations' script.
 
 ### **HTML** file
-The **index.htm** file is the only html file in project. All the actions are managed by js files.
-ENTRYPOINT
+- **index.htm** is the only HTML file in project. It is the application entry point.
 
 ### CSS files
-WHAT EACH FILE DOES
--  **index.css** - Todo-app-list styles
--  ***base.css*** - app commons
+-  **index.css** - defines all application CSS styles
+-  ***base.css*** - defines common styles
 
 ### **JavaScript** files
+All the actions and user interactions are managed by JavaScript files.
 
 #### MVC model
--  **app.js** creates an instance of program by initiating Model, View and Conroller
+-  **app.js** creates an instance of program by initiating Model, View and Controller
 -  **controller.js** initiates all user action listeners, delivers methods that connects View interactions with Model operations
 -  **model.js** is responsible for data management
--  **view.js** is resposible for displaying data
+-  **view.js** is responsible for displaying data
 
 #### Additional files
 -  ***storage.js*** delivers sample data storage solution
 -  ***template.js*** delivers template function to display list items, change button states, escape characters
 -  ***helper.js*** deliver helper functions for DOM elements querying, wrapping, delegating events  
 
-
 ## Testing results
-I performed two staged testing: ***manual*** testing and ***Jasmine*** testing
+I performed two staged  based testing: ***manual*** testing and ***automatic Jasmine*** based testing
 
-1. During **maual testing** I found two bugs:
+1. During **manual testing** I found two bugs:
   -  misspelling function declaration "addItem"
-  -  generating random ID for list elements without checking past occurance
+  -  risky random ID generating for list elements without checking past occurrence
 
-2. During **Jasmine testing** I found a list ready test. I've written new test learning from existing ones. I've added or refactored tests for:
+2. During **automatic Jasmine testing** I found a list of ready tests. I've written new test learning from existing ones. I've added or modified tests for:
   -  should show entries on start-up
   -  should show active entries
   -  should show completed entries
@@ -66,28 +63,28 @@ I performed two staged testing: ***manual*** testing and ***Jasmine*** testing
   -  should add a new todo to the model
   -  should remove an entry from the model
 
-During writing additional test for checkbox state stayling I found bug preventing proper element styling with wrong ID specification in <label> selector   
+During writing additional test for stayling of checkbox state I found bug. There was  wrong ID declaration in `<label>` selector preventing proper element styling  
 
 ## Bug fixing
 I corrected following:
 -  in ***controller.js***
 
-    replaced ```Controller.prototype.adddItem```
+    found `Controller.prototype.adddItem`
 
-    with ```Controller.prototype.addItem```
+    replaced with `Controller.prototype.addItem`
 -  in ***index.html***
 
-    replaced ```<input class="toggle-all" type="checkbox">```
+    found `<input class="toggle-all" type="checkbox">`
 
-    with ```<input class="toggle-all" id="toggle-all" type="checkbox">```
+    replaced with `<input class="toggle-all" id="toggle-all" type="checkbox">`
 - in ***strore.js***
 
-    replaced
+    found
 
         for (var i = 0; i < 6; i++) {
           newId += charset.charAt(Math.floor(Math.random() * charset.length));
         }
-    with
+    replaced with
         var isUnique = false;
 
         while (!isUnique){

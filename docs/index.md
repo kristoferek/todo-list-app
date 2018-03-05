@@ -1,3 +1,9 @@
+TODO:
+- FORMATTING
+- COMPARISON
+- SPELLCHECK
+- build the documentations with "readthedocs"
+
 ### Table of Contents
 -  [Introduction](#introduction)
 -  [Program specification](#Program-specification)
@@ -41,9 +47,9 @@ All the actions and user interactions are managed by JavaScript files.
 -  **view.js** is responsible for displaying data
 
 #### Additional files
--  ***storage.js*** delivers sample data storage solution
+-  ***store.js*** delivers sample data storage solution
 -  ***template.js*** delivers template function to display list items, change button states, escape characters
--  ***helper.js*** deliver helper functions for DOM elements querying, wrapping, delegating events  
+-  ***helpers.js*** deliver helper functions for DOM elements querying, wrapping, delegating events  
 
 ## Testing results
 I performed two staged  based testing: ***manual*** testing and ***automatic Jasmine*** based testing
@@ -89,7 +95,7 @@ I corrected following:
   <input class="toggle-all" id="toggle-all" type="checkbox">
   ```
 
-- in ***strore.js***
+- in ***store.js***
 
   found
   ```javascript
@@ -145,7 +151,8 @@ Loading testing results are available on below listed snapshots:
     - rendering: **70.4ms**
     - memory usage: **+(<2)%**
 
-    [![Performance](./img/adding_performance_th.jpg)](./img/ading_performance.jpg) | [![Memory](./img/adding_memory_th.jpg)](./img/adding_memory.jpg)
+    [![Performance](./img/adding_performance_th.jpg)](./img/adding_performance.jpg) | [![Memory](./img/adding_memory_th.jpg)](./img/adding_memory.jpg)
+    ---|---
 
 2. Operation of continuosly **switching three basic views** between All, Active, Completed
     - scripting: **12.2ms**
@@ -153,6 +160,7 @@ Loading testing results are available on below listed snapshots:
     - memory usage: **-(<1)%**
 
     [![Performance](./img/switch_performance_th.jpg)](./img/switch_performance.jpg) | [![Memory](./img/switch_memory_th.jpg)](./img/switch_memory.jpg)
+    ---|---
 
 3. Operation of **marking one task completed**
     - scripting: **2.7ms**

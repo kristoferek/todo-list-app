@@ -1,7 +1,4 @@
 TODO:
-- FORMATTING
-- COMPARISON
-- SPELLCHECK
 - build the documentations with "readthedocs"
 
 ### Table of Contents
@@ -14,17 +11,17 @@ TODO:
 -  [Competitor comparison](#Competitor-comparison)
 -  [Conclusions](#Conclusions)
 
-
+---
 
 ## Introduction
-Todo-list-app is an application that allows to manage a list of tasks. It allows adding, updating, deleting and toggling state od each task. It has minimalistic design and basic functionality.
+Todo-list-app is an application that allows to manage a list of tasks. It allows adding, updating, deleting and toggling state of each task. It has minimalistic design and basic functionality.
 You can see it working here:
 
 [https://kristoferek.github.io/todo-list-app/](https://kristoferek.github.io/todo-list-app/)
 
 App is a kind of model showing how to implement MVC approach in JavaScript. Model, Controller, View (MVC) methodology separates data logic (model) from display functionality (View) and manages them using separate entity (Controller).
 
-The managing part of program (Contrloller) is responsible for:
+The managing part of program (Controller) is responsible for:
 1.  listening to user actions from View,
 2.  calling Model to perform requested operations,
 3.  calling View to display results from Model  
@@ -72,7 +69,7 @@ I performed two staged testing: ***manual*** testing and ***automatic Jasmine***
   -  should add a new todo to the model
   -  should remove an entry from the model
 
-During writing additional test for stayling of checkbox state I found **bug**. There was  impropriate ID declaration in `<label>` selector preventing proper element styling  
+During writing additional test for styling of checkbox state I found **bug**. There was  impropriate ID declaration in `<label>` selector preventing proper element styling  
 
 ## Bug fixing
 I corrected following:
@@ -80,12 +77,12 @@ I corrected following:
 -  in ***controller.js***
 
   found
-  ```javascript
+  ```JavaScript
   Controller.prototype.adddItem
   ```
 
   replaced with
-   ```javascript
+   ```JavaScript
    Controller.prototype.addItem
    ```
 -  in ***index.html***
@@ -102,14 +99,14 @@ I corrected following:
 - in ***store.js***
 
   found
-  ```javascript
+  ```JavaScript
   for (var i = 0; i < 6; i++) {
     newId += charset.charAt(Math.floor(Math.random() * charset.length));
   }
   ```
   replaced with
 
-  ```javascript
+  ```JavaScript
   var isUnique = false;
 
   while (!isUnique){
@@ -132,7 +129,7 @@ My impression is that page loads fast, uses small amount of memory and displays 
 ### Loading
 *(The worst achieved result)*
 
-- Transfered: **27.7 KB**
+- Transferred: **27.7 KB**
 - Transfer time: **625ms**
 - DOM loads: **507ms**
 - Page loads in: **652ms**
@@ -140,7 +137,7 @@ My impression is that page loads fast, uses small amount of memory and displays 
 
 The majority of loading time is done by JS scripting - over 50%, while rendering and painting take less then 10%.
 
-Memory required by application to start is lower then 20MB which is more then suitable for majorty of devices (even older ones).
+Memory required by application to start is lower then 20MB which is more then suitable for majority of devices (even older ones).
 
 Loading testing results are available on below listed snapshots:
 
@@ -150,14 +147,14 @@ Loading testing results are available on below listed snapshots:
 
 ### Operating
 
-1. Operation of **typying in, adding and deleting two list elements**
+1. Operation of **typing in, adding and deleting two list elements**
     - scripting: **16ms**
     - rendering: **70.4ms**
     - memory usage: **+(<2)%**
 
   [![Performance](./img/adding_performance_th.jpg)](./img/adding_performance.jpg) [![Memory](./img/adding_memory_th.jpg)](./img/adding_memory.jpg)
 
-2. Operation of continuosly **switching three basic views** between All, Active, Completed
+2. Operation of continuously **switching three basic views** between All, Active, Completed
     - scripting: **12.2ms**
     - rendering: **32.7ms**
     - memory usage: **-(<1)%**
@@ -178,15 +175,15 @@ Loading testing results are available on below listed snapshots:
 
   [![Performance](./img/clearing_performance_th.jpg)](./img/clearing_performance.jpg) [![Memory](./img/clearing_memory_th.jpg)](./img/clearing_memory.jpg)
 
-Operating fully loaded application requires minimum recources. During interacting with app Dev Tools shows low usage below, short scripting and rendering times.
+Operating fully loaded application requires minimum recourses. During interacting with app Dev Tools shows low usage below, short scripting and rendering times.
 
 ## Competitor audit
-According to the task I egzamined competitors webpage [todolistme.net](http://todolistme.net/). It is much more sophisticated. In addition to todo-list-app it contains following functionalities:
-- subpages with instructions, contact infos and development options,
+According to the task I examined competitors webpage [todolistme.net](http://todolistme.net/). It is much more sophisticated. In addition to todo-list-app it contains following functionalities:
+- subpages with instructions, contact information and development options,
 - registration,
 - synchronizing,
 - printing,
-- commericials,
+- commercials,
 - multiple lists,
 - sorting,
 - drag and drop reordering.
@@ -198,13 +195,13 @@ Here is results of basic audit for **todolistme** page.
 ### Loading "todolistme"
 *(The worst achieved result)*
 
-- Transfered: **1100 KB**
+- Transferred: **1100 KB**
 - Transfer time: **5340ms**
 - DOM loads: **1290ms**
 - Page loads in: **3360ms**
 - JS memory heap: **11.4 - 74.7MB**
 
-The majority of loading time is done by JS scripting - over 60%, while rendering and sources loading, painting take less approximetly 10%. Memory required by application to start is over 74M.
+The majority of loading time is done by JS scripting - over 60%, while rendering and sources loading, painting take less approximately 10%. Memory required by application to start is over 74M.
 
 Loading testing results are available on below listed snapshots:
 
@@ -219,7 +216,7 @@ Beneath I present the result of comparison.
 
 | todo-list-app | todolistme |
 --|--|--
-Transfered: | **27.7 KB** | **1100 KB**
+Transferred: | **27.7 KB** | **1100 KB**
 Transfer time: | **625ms** | **5340ms**
 DOM loads: | **507ms** | **1290ms**
 Page loads in: | **652ms** | **3360ms**
@@ -231,14 +228,14 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 
 ***Pros (+)***
 - ready to use and sophisticated solution.
-- It has plenty of usefull functionalities and custom design
-- It uses number of well optimised images for better user experience and well optimized css
+- It has plenty of useful functionalities and custom design
+- It uses number of well optimized images for better user experience and well optimized css
 - Well supported
 
 ***Cons (-)***
 - Loading time
-- Memory consumtion
-- Overal performace strongly influenced by internal javascript
+- Memory consumption
+- Overall performance strongly influenced by internal JavaScript
 - Number of third party scripts requests before and after DOM loaded
 - Commercial that delays loading and increases data transfer
 - large number of global variables
@@ -248,7 +245,7 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 ***Pros (+)***
 - Ready to use or develop as a module
 - Fast loading and operating
-- Low memory consumtion
+- Low memory consumption
 - Low data transfer
 - Based on MVC model easy to understand and develop
 - Well commented code
@@ -264,7 +261,7 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 
 App ***todo-list-app*** performs very efficient comparing to competitor. There is a space for further developments with regards of keeping app small and quick. In my opinion it would be optimal to use dedicated CSS and continuing using vanilla JavaScript .
 
-To-do-app can be developed as a sole application as well as a very efficient module to be combined in a larger project. One of the key chalanges is to chose appropiate storage solution, that will allow to maintain its biggest advantages:
+To-do-app can be developed as a sole application as well as a very efficient module to be combined in a larger project. One of the key challenges is to chose appropriate storage solution, that will allow to maintain its biggest advantages:
 * simplicity,
 * speed
-* low recources demand
+* low recourses demand

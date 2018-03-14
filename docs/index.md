@@ -75,13 +75,13 @@ I corrected following:
 
   found
 
-```JavaScript
+```javascript
   Controller.prototype.adddItem
 ```
 
   replaced with
 
-```JavaScript
+```javascript
   Controller.prototype.addItem
 ```
 -  in ***index.html***
@@ -102,7 +102,7 @@ I corrected following:
 
   found
 
-```JavaScript
+```javascript
   for (var i = 0; i < 6; i++) {
     newId += charset.charAt(Math.floor(Math.random() * charset.length));
   }
@@ -110,7 +110,7 @@ I corrected following:
 
   replaced with
 
-```JavaScript
+```javascript
   var isUnique = false;
 
   while (!isUnique){
@@ -226,7 +226,7 @@ Loading testing results are available on below listed snapshots:
 
 Beneath I present the result of comparison.
 
-| todo-list-app | todolistme |
+| todo-list-app | todolistme
 --|--|--
 Transferred: | **27.7 KB** | **1100 KB**
 Transfer time: | **625ms** | **5340ms**
@@ -236,7 +236,7 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 
 ### Summary
 
-### todolistme
+#### todolistme
 
 ***Pros (+)***
 

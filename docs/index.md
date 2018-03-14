@@ -30,7 +30,7 @@ You can find detailed description of all functions in [file javascript.md](./jav
 ### **HTML** file
 - **index.htm** is the only HTML file in project. It is the application entry point.
 
-### CSS files
+### **CSS** files
 -  **index.css** - defines all application CSS styles
 -  ***base.css*** - defines common styles
 
@@ -52,19 +52,19 @@ All the actions and user interactions are managed by JavaScript files.
 I performed two staged testing: ***manual*** testing and ***automatic Jasmine*** based testing
 
 1. During **manual testing** I found two bugs:
-  -  misspelling function declaration "addItem"
-  -  risky random ID generating for list elements without checking past occurrence
+    -  misspelling function declaration "addItem"
+    -  risky random ID generating for list elements without checking past occurrence
 
 2. During **automatic Jasmine testing** I found a list of ready tests. I've written new test learning from existing ones. I've added or modified tests for:
-  -  should show entries on start-up
-  -  should show active entries
-  -  should show completed entries
-  -  should show the content block when todos exists
-  -  should highlight "All" filter by default
-  -  should toggle all todos to completed
-  -  should update the view
-  -  should add a new todo to the model
-  -  should remove an entry from the model
+    -  should show entries on start-up
+    -  should show active entries
+    -  should show completed entries
+    -  should show the content block when todos exists
+    -  should highlight "All" filter by default
+    -  should toggle all todos to completed
+    -  should update the view
+    -  should add a new todo to the model
+    -  should remove an entry from the model
 
 During writing additional test for styling of checkbox state I found **bug**. There was  impropriate ID declaration in `<label>` selector preventing proper element styling  
 
@@ -74,21 +74,26 @@ I corrected following:
 -  in ***controller.js***
 
   found
+
   ```JavaScript
   Controller.prototype.adddItem
   ```
 
   replaced with
+
    ```JavaScript
    Controller.prototype.addItem
    ```
 -  in ***index.html***
 
   found
+
   ```HTML
   <input class="toggle-all" type="checkbox">
   ```
+
   replaced with
+
   ``` HTML
   <input class="toggle-all" id="toggle-all" type="checkbox">
   ```
@@ -96,11 +101,13 @@ I corrected following:
 - in ***store.js***
 
   found
+
   ```JavaScript
   for (var i = 0; i < 6; i++) {
     newId += charset.charAt(Math.floor(Math.random() * charset.length));
   }
   ```
+
   replaced with
 
   ```JavaScript
@@ -124,6 +131,7 @@ I corrected following:
 My impression is that page loads fast, uses small amount of memory and displays content immediately. It is based only on `html`, `css` and `vanilla javascript` sources and doesn't require any media files, like images or video as well as fonts or heavy and complicated style files.
 
 ### Loading
+
 *(The worst achieved result)*
 
 - Transferred: **27.7 KB**
@@ -145,6 +153,7 @@ Loading testing results are available on below listed snapshots:
 ### Operating
 
 1. Operation of **typing in, adding and deleting two list elements**
+
     - scripting: **16ms**
     - rendering: **70.4ms**
     - memory usage: **+(<2)%**
@@ -152,6 +161,7 @@ Loading testing results are available on below listed snapshots:
   [![Performance](./img/adding_performance_th.jpg)](./img/adding_performance.jpg) [![Memory](./img/adding_memory_th.jpg)](./img/adding_memory.jpg)
 
 2. Operation of continuously **switching three basic views** between All, Active, Completed
+
     - scripting: **12.2ms**
     - rendering: **32.7ms**
     - memory usage: **-(<1)%**
@@ -159,6 +169,7 @@ Loading testing results are available on below listed snapshots:
   [![Performance](./img/switch_performance_th.jpg)](./img/switch_performance.jpg) [![Memory](./img/switch_memory_th.jpg)](./img/switch_memory.jpg)
 
 3. Operation of **marking one task completed**
+
     - scripting: **2.7ms**
     - rendering: **27.6ms**
     - memory usage: **-(<1)%**
@@ -166,6 +177,7 @@ Loading testing results are available on below listed snapshots:
   [![Performance](./img/marking_performance_th.jpg)](./img/marking_performance.jpg) [![Memory](./img/marking_memory_th.jpg)](./img/marking_memory.jpg)
 
 4. Operation of **clearing three completed tasks**
+
     - scripting: **7.2ms**
     - rendering: **11.3ms**
     - memory usage: **-(<1)%**
@@ -175,7 +187,9 @@ Loading testing results are available on below listed snapshots:
 Operating fully loaded application requires minimum recourses. During interacting with app Dev Tools shows low usage below, short scripting and rendering times.
 
 ## Competitor audit
+
 According to the task I examined competitors webpage [todolistme.net](http://todolistme.net/). It is much more sophisticated. In addition to todo-list-app it contains following functionalities:
+
 - subpages with instructions, contact information and development options,
 - registration,
 - synchronizing,
@@ -190,6 +204,7 @@ As these two apps differ a lot and **todolistme** is far more developed solution
 Here is results of basic audit for **todolistme** page.
 
 ### Loading "todolistme"
+
 *(The worst achieved result)*
 
 - Transferred: **1100 KB**
@@ -198,7 +213,7 @@ Here is results of basic audit for **todolistme** page.
 - Page loads in: **3360ms**
 - JS memory heap: **11.4 - 74.7MB**
 
-The majority of loading time is done by JS scripting - over 60%, while rendering and sources loading, painting take less approximately 10%. Memory required by application to start is over 74M.
+The majority of loading time is done by JS scripting - over 60%, while rendering and sources loading, painting take less approximately 10%. Memory required by application to start is over 74MB.
 
 Loading testing results are available on below listed snapshots:
 
@@ -224,12 +239,14 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 ### todolistme
 
 ***Pros (+)***
+
 - ready to use and sophisticated solution.
 - It has plenty of useful functionalities and custom design
 - It uses number of well optimized images for better user experience and well optimized css
 - Well supported
 
 ***Cons (-)***
+
 - Loading time
 - Memory consumption
 - Overall performance strongly influenced by internal JavaScript
@@ -240,6 +257,7 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 #### todo-list-app
 
 ***Pros (+)***
+
 - Ready to use or develop as a module
 - Fast loading and operating
 - Low memory consumption
@@ -249,6 +267,7 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 - Minimalistic design
 
 ***Cons (-)***
+
 - Limited functionality
 - Still requires remote storage functionality
 

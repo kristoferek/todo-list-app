@@ -75,56 +75,56 @@ I corrected following:
 
   found
 
-  ```JavaScript
-  Controller.prototype.adddItem
-  ```
+      ```JavaScript
+      Controller.prototype.adddItem
+      ```
 
   replaced with
 
-   ```JavaScript
-   Controller.prototype.addItem
-   ```
+       ```JavaScript
+       Controller.prototype.addItem
+       ```
 -  in ***index.html***
 
   found
 
-  ```HTML
-  <input class="toggle-all" type="checkbox">
-  ```
+      ```HTML
+      <input class="toggle-all" type="checkbox">
+      ```
 
   replaced with
 
-  ``` HTML
-  <input class="toggle-all" id="toggle-all" type="checkbox">
-  ```
+      ``` HTML
+      <input class="toggle-all" id="toggle-all" type="checkbox">
+      ```
 
 - in ***store.js***
 
   found
 
-  ```JavaScript
-  for (var i = 0; i < 6; i++) {
-    newId += charset.charAt(Math.floor(Math.random() * charset.length));
-  }
-  ```
+      ```JavaScript
+      for (var i = 0; i < 6; i++) {
+        newId += charset.charAt(Math.floor(Math.random() * charset.length));
+      }
+      ```
 
   replaced with
 
-  ```JavaScript
-  var isUnique = false;
+      ```JavaScript
+      var isUnique = false;
 
-  while (!isUnique){
-		for (var i = 0; i < 6; i++) {
-			newId += charset.charAt(Math.floor(Math.random() * charset.length));
-		}
-		isUnique = true;
-		for (var i = 0; i < todos.length; i++) {
-			if (todos[i].id == newId) {
-				isUnique = false;
-			}
-		}
-  }
-  ```
+      while (!isUnique){
+        for (var i = 0; i < 6; i++) {
+          newId += charset.charAt(Math.floor(Math.random() * charset.length));
+        }
+        isUnique = true;
+        for (var i = 0; i < todos.length; i++) {
+          if (todos[i].id == newId) {
+            isUnique = false;
+          }
+        }
+      }
+      ```
 
 ## Audit
 

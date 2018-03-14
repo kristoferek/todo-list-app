@@ -1,6 +1,3 @@
-TODO:
-- build the documentations with "readthedocs"
-
 ### Table of Contents
 -  [Introduction](#introduction)
 -  [Program specification](#Program-specification)

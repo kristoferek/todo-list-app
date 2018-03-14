@@ -226,7 +226,7 @@ Loading testing results are available on below listed snapshots:
 
 Beneath I present the result of comparison.
 
-| todo-list-app | todolistme
+&nbsp; | todo-list-app | todolistme
 --|--|--
 Transferred: | **27.7 KB** | **1100 KB**
 Transfer time: | **625ms** | **5340ms**

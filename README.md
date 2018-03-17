@@ -1,4 +1,8 @@
 # todo-list-app
-Projct 8 - Openclassrooms Front End bachlor's course
+Project 8 - Openclassrooms Front End bachlor's course
 
-https://kristoferek.github.io/todo-list-app/
+- See working app here:
+  [kristoferek.github.io/todo-list-app](https://kristoferek.github.io/todo-list-app/)
+
+- See documentation here:
+  [todo-list-app.readthedocs.io]{http://todo-list-app.readthedocs.io/}

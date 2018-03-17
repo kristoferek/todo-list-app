@@ -10,8 +10,10 @@
 
 ---
 
+*Warsaw, 10 March 2018*
+
 ## Introduction
-Todo-list-app is an application that allows to manage a list of tasks. It allows adding, updating, deleting and toggling state of each task. It has minimalistic design and basic functionality.
+Todo-list-app is an application that allows to manage a list of tasks to do. It performs adding, updating, deleting and toggling state of each task. It has minimalistic design and basic functionality.
 You can see it working here:
 
 [https://kristoferek.github.io/todo-list-app/](https://kristoferek.github.io/todo-list-app/)
@@ -39,9 +41,9 @@ All the actions and user interactions are managed by JavaScript files.
 
 #### MVC model
 -  **app.js** creates an instance of program by initiating Model, View and Controller
--  **controller.js** initiates all user action listeners, delivers methods that connects View interactions with Model operations
--  **model.js** is responsible for data management
--  **view.js** is responsible for displaying data
+-  **controller.js** defines all user action listeners, delivers methods that connects View interactions with Model operations
+-  **model.js** defines data management methods
+-  **view.js** defines data displaying methods
 
 #### Additional files
 -  ***store.js*** delivers sample data storage solution
@@ -49,13 +51,13 @@ All the actions and user interactions are managed by JavaScript files.
 -  ***helpers.js*** deliver helper functions for DOM elements - querying, wrapping, delegating events  
 
 ## Testing results
-I performed two staged testing: ***manual*** testing and ***automatic Jasmine*** based testing
+Two stages of testing were performed: ***manual*** testing and ***automatic Jasmine*** based testing
 
-1. During **manual testing** I found two bugs:
+1. During **manual testing** two bugs were found:
     -  misspelling function declaration "addItem"
-    -  risky random ID generating for list elements without checking past occurrence
+    -  risky random ID generating for list elements without checking its past occurrence
 
-2. During **automatic Jasmine testing** I found a list of ready tests. I've written new test learning from existing ones. I've added or modified tests for:
+2. Process of **automatic Jasmine testing** required writing additional test to already written ones. Basing on existing testing strategy new tests where added. Newly created tests were supposed to check following cases:
     -  should show entries on start-up
     -  should show active entries
     -  should show completed entries
@@ -66,10 +68,10 @@ I performed two staged testing: ***manual*** testing and ***automatic Jasmine***
     -  should add a new todo to the model
     -  should remove an entry from the model
 
-During writing additional test for styling of checkbox state I found **bug**. There was  impropriate ID declaration in `<label>` selector preventing proper element styling  
+During test writing for styling of checkbox state another **bug** was found . There was impropriate ID declaration in `<label>` selector preventing proper element styling  
 
 ## Bug fixing
-I corrected following:
+Following list presents **bugs** and the way they were corrected:
 
 -  in ***controller.js***
 
@@ -84,6 +86,7 @@ I corrected following:
 ```javascript
   Controller.prototype.addItem
 ```
+
 -  in ***index.html***
 
   found
@@ -128,7 +131,9 @@ I corrected following:
 
 ## Audit
 
-My impression is that page loads fast, uses small amount of memory and displays content immediately. It is based only on `html`, `css` and `vanilla javascript` sources and doesn't require any media files, like images or video as well as fonts or heavy and complicated style files.
+Basing on audit analysis it can be stated that page loads fast, uses small amount of memory and displays content immediately. It is based only on `html`, `css` and `vanilla javascript` sources and doesn't require any media files, like images or video as well as fonts or heavy and complicated style files.
+
+Audit was performed using ***Developer Tools*** in ***Chrome*** browser (v.64, 64-bit) on Windows 10 machine. Tested page was hosted on github pages at this following link [kristoferek.github.io/todo-list-app/](https://kristoferek.github.io/todo-list-app/).
 
 ### Loading
 
@@ -140,11 +145,11 @@ My impression is that page loads fast, uses small amount of memory and displays 
 - Page loads in: **652ms**
 - JS memory heap: **9.2 - 17.2MB**
 
-The majority of loading time is done by JS scripting - over 50%, while rendering and painting take less then 10%.
+The majority of loading time is done by JS scripting - over *50%*, while rendering and painting take less then *10%*.
 
-Memory required by application to start is lower then 20MB which is more then suitable for majority of devices (even older ones).
+Memory required by application to start is lower then *20MB* which is more then suitable for majority of devices (even older ones).
 
-Loading testing results are available on below listed snapshots:
+Loading testing results are available on below:
 
 [![Overview](./img/loading_th.jpg)](./img/loading.jpg) | [![Performance](./img/loading_performance_th.jpg)](./img/loading_performance.jpg)
 ---|---
@@ -152,7 +157,9 @@ Loading testing results are available on below listed snapshots:
 
 ### Operating
 
-1. Operation of **typing in, adding and deleting two list elements**
+During analysis basic operations on app were performed. Main conclusion is that app keeps memory, computing power and GPU load on constant level.  
+
+1. Operation of **typing in, adding and deleting of two list elements**
 
     - scripting: **16ms**
     - rendering: **70.4ms**
@@ -184,11 +191,11 @@ Loading testing results are available on below listed snapshots:
 
   [![Performance](./img/clearing_performance_th.jpg)](./img/clearing_performance.jpg) [![Memory](./img/clearing_memory_th.jpg)](./img/clearing_memory.jpg)
 
-Operating fully loaded application requires minimum recourses. During interacting with app Dev Tools shows low usage below, short scripting and rendering times.
+Operating fully loaded application requires minimum recourses. It shows low memory usage, short scripting and rendering times..
 
 ## Competitor audit
 
-According to the task I examined competitors webpage [todolistme.net](http://todolistme.net/). It is much more sophisticated. In addition to todo-list-app it contains following functionalities:
+According recommendation competitors webpage [todolistme.net](http://todolistme.net/) was examined too. It is much more sophisticated solution. In addition to todo-list-app it contains following functionalities:
 
 - subpages with instructions, contact information and development options,
 - registration,
@@ -200,8 +207,8 @@ According to the task I examined competitors webpage [todolistme.net](http://tod
 - drag and drop reordering.
 
 
-As these two apps differ a lot and **todolistme** is far more developed solution I decided to compare only basic parameters.
-Here is results of basic audit for **todolistme** page.
+As these two apps differ a lot and **todolistme** is far more developed solution only basic parameters comparison was analyzed.
+There is results of basic audit for **todolistme** page beneath.
 
 ### Loading "todolistme"
 
@@ -215,7 +222,7 @@ Here is results of basic audit for **todolistme** page.
 
 The majority of loading time is done by JS scripting - over 60%, while rendering and sources loading, painting take less approximately 10%. Memory required by application to start is over 74MB.
 
-Loading testing results are available on below listed snapshots:
+Loading analysis results are available below:
 
 [![Overview](./img/c_loading_th.jpg)](./img/c_loading.jpg) | [![Performance](./img/c_loading_performance_th.jpg)](./img/c_loading_performance.jpg)
 ---|---
@@ -224,7 +231,7 @@ Loading testing results are available on below listed snapshots:
 
 ## Competitor comparison
 
-Beneath I present the result of comparison.
+Application comparison looks as follows:
 
 &nbsp; | todo-list-app | todolistme
 --|--|--
@@ -240,9 +247,10 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 
 ***Pros (+)***
 
-- ready to use and sophisticated solution.
-- It has plenty of useful functionalities and custom design
-- It uses number of well optimized images for better user experience and well optimized css
+- Ready to use and sophisticated solution
+- Plenty of useful functionalities
+- Custom design
+- Number of well optimized images for better user experience and well optimized css
 - Well supported
 
 ***Cons (-)***
@@ -275,9 +283,13 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 
 ## Conclusions
 
-App ***todo-list-app*** performs very efficient comparing to competitor. There is a space for further developments with regards of keeping app small and quick. In my opinion it would be optimal to use dedicated CSS and continuing using vanilla JavaScript .
+App ***todo-list-app*** performs very efficient comparing to competitor. There is a space for further developments with regards of keeping app small and quick. It would be optimal to use dedicated CSS and continuing using vanilla JavaScript.
 
 To-do-app can be developed as a sole application as well as a very efficient module to be combined in a larger project. One of the key challenges is to chose appropriate storage solution, that will allow to maintain its biggest advantages:
-* simplicity,
+* simplicity
 * speed
 * low recourses demand
+
+---
+
+[![Github acount](./img/GitHub-Mark-32px.png) Christopher Nowak  &copy;](https://github.com/kristoferek)

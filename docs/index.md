@@ -16,7 +16,11 @@
 Todo-list-app is an application that allows to manage a list of tasks to do. It performs adding, updating, deleting and toggling state of each task. It has minimalistic design and basic functionality.
 You can see it working here:
 
-[https://kristoferek.github.io/todo-list-app/](https://kristoferek.github.io/todo-list-app/)
+*[kristoferek.github.io/todo-list-app](https://kristoferek.github.io/todo-list-app/)*
+
+The app repository is available here:
+
+*[github.com/kristoferek/todo-list-app](https://github.com/kristoferek/todo-list-app/)*
 
 App is a kind of model showing how to implement MVC approach in JavaScript. Model, Controller, View (MVC) methodology separates data logic (model) from display functionality (View) and manages them using separate entity (Controller).
 

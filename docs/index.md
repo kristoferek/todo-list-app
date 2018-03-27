@@ -290,6 +290,7 @@ JS memory heap: | **9.2 - 17.2MB** | **11.4 - 74.7MB**
 App ***todo-list-app*** performs very efficient comparing to competitor. There is a space for further developments with regards of keeping app small and quick. It would be optimal to use dedicated CSS and continuing using vanilla JavaScript.
 
 To-do-app can be developed as a sole application as well as a very efficient module to be combined in a larger project. One of the key challenges is to chose appropriate storage solution, that will allow to maintain its biggest advantages:
+
 * simplicity
 * speed
 * low recourses demand
